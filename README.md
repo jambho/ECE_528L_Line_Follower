@@ -40,6 +40,9 @@ Starting gains and constants: `KP = 5`, `KD = 10`, `PWM_NOMINAL = 2500`, `MAX_PW
 
 Compared to the first version, PD control handles every sensor pattern, not just a few exact ones. This made the line following smoother and reduced zig-zagging. Because turns end when the line is found again instead of after a fixed delay, they no longer depend on battery level or floor friction.
 
+Serial Terminal from `PrintBinary`:
+![Serial Terminal Output](./Figures/LineSensorSerialTerminal.png)
+
 ### Known Issues or Limitations
 * The robot seems to still struggle on the track I created, likely due to the table not reflecting the light correctly. When using the terminal, the readings from the sensors seemed to fire at random occasionally causing the robot to execute incorrect instructions and get off track. Adding paper under the tape slightly helped but still faced the same issues.
 * The robot once spun in circles nonstop. When all sensors read black (for example, when the robot was lifted off the track), the intersection, turn and stop states kept triggering each other in a loop. This was fixed so the robot only resumes when it sees a normal line pattern.
